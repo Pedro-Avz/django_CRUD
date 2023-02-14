@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Gastos</title>
+</head>
+<body>
+    <h1> Despesas do mês </h1>
+    <br>
+    {% for transacao in transacoes %}
+       <li> {{transacao.descricao}}  - ${{transacao.valor}} - Dia {{transacao.data}} - 
+        Categoria - {{transacao.categorias}} <a href="{% url 'url_update' transacao.id %}"><button> Editar </button></a> <a href="{% url 'url_delete' transacao.id %}"><button> Deletar </button></a></li>
+    {% endfor %}
+
+    <a href="{%url 'url_criar'%}"><button> Cadastrar Nova Transação </button></a>
+</body>
+</html>
